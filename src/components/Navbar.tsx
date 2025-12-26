@@ -16,15 +16,15 @@ const Navbar = () => {
 
             {/* controller */}
             {show && (
-                <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-110 max-w-120">
+                <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2">
                 <div className="nes-container with-title is-centered bg-white is-rounded ">
                     <p className="title">controller</p>
-                    <div className="sm:grid sm:grid-cols-2 lg:flex gap-2">
-                        <button type="button" className="nes-btn is-primary w-20">Home</button>
-                        <button type="button" className="nes-btn is-success w-20">Skills</button>
-                        <button type="button" className="nes-btn is-warning w-20">Project</button>
-                        <button type="button" className="nes-btn is-error w-20">Contact</button>
-                    </div>
+                   <div className="flex gap-1 w-90">
+                            <button type="button" className="nes-btn is-primary w-20">Home</button>
+                            <button type="button" className="nes-btn is-success w-20">Skills</button>
+                            <button type="button" className="nes-btn is-warning w-20">Project</button>
+                            <button type="button" className="nes-btn is-error w-20">Contact</button>
+                        </div>
                 </div>
             </div>
             )}
