@@ -1,7 +1,7 @@
 
 const Navbar = () => {
     return (
-        <div className="max-w-120 mx-auto p-2 border border-red-500">
+        <div className="max-w-120 mx-auto p-1 border border-red-500">
             <div className="nes-container with-title is-centered is-rounded bg-[rgba(248,248,255,0.9)]">
                 <p className="">controller</p>
                 <div className="flex justify-between">
