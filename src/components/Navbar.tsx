@@ -1,13 +1,16 @@
 
 const Navbar = () => {
     return (
-        <div className="main-container">
-        <div className="nes-container is-rounded child">
-            <button type="button" className="nes-btn is-primary">Home</button>
-            <button type="button" className="nes-btn is-success">Success</button>
-            <button type="button" className="nes-btn is-warning">Warning</button>
-            <button type="button" className="nes-btn is-error">Error</button>
-        </div>
+        <div className="max-w-120 mx-auto p-2 border border-red-500">
+            <div className="nes-container with-title is-centered is-rounded bg-[rgba(248,248,255,0.9)]">
+                <p className="">controller</p>
+                <div className="flex justify-between">
+                <button type="button" className="nes-btn is-primary">Home</button>
+                <button type="button" className="nes-btn is-success">Skills</button>
+                <button type="button" className="nes-btn is-warning">Projects</button>
+                <button type="button" className="nes-btn is-error">Contacts</button>
+                </div>
+            </div>
         </div>
     )
 }

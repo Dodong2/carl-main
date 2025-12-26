@@ -1,7 +1,7 @@
 /* react-router-dom */
 import { lazy, Suspense } from 'react'
 /* react-router-dom */
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 /* css */
 import './App.css'
 /* components */
@@ -14,7 +14,7 @@ const Project = lazy(() => import('./pages/Project'))
 const Contact = lazy(() => import('./pages/Contact'))
 
 // router for page calling
-const router = createBrowserRouter([
+const router = createHashRouter([
   { path: "/", element: <Home/> },
   { path: "/skills", element: <Skills/> },
   { path: "/projects", element: <Project/> },

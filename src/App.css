@@ -1,12 +1,11 @@
 /* Component styles */
-.main-container {
+/* .main-container {
   max-width: 960px;
   margin: 0 auto;
   padding: var(--space-md);
   border: 1px solid red;
   background-color: rgba(248, 248, 255, 0.9);
-}
-
+} */
 
 /* ANIMATED GRID BACKGROUND - Whole Screen Coverage */
 .animated-grid-background {
