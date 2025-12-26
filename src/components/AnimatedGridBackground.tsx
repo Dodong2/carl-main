@@ -12,18 +12,16 @@ export const AnimatedGridBackground = () => {
             
             // Determine cell size based on screen width
             let cellSize = 50;
-            if (width <= 400) cellSize = 25;
-            else if (width <= 576) cellSize = 30;
-            else if (width <= 768) cellSize = 35;
-            else if (width <= 992) cellSize = 40;
-            else if (width <= 1200) cellSize = 45;
+            if (width < 400) cellSize = 25;
+            else if (width < 640) cellSize = 30;
+            else if (width < 768) cellSize = 35;
+            else if (width < 1024) cellSize = 40;
+            else if (width < 1280) cellSize = 45;
             
-            // Calculate columns and rows
             const cols = Math.ceil(width / cellSize);
             const rows = Math.ceil(height / cellSize);
-            
-            // Total cells = cols * rows
             const total = cols * rows;
+            
             setTotalCells(total);
         };
 
@@ -33,7 +31,7 @@ export const AnimatedGridBackground = () => {
         return () => window.removeEventListener('resize', calculateCells);
     }, []);
 
-    // Animation effect
+    // Animation effect for random fills
     useEffect(() => {
         if (totalCells === 0) return;
 
@@ -59,15 +57,56 @@ export const AnimatedGridBackground = () => {
     }, [totalCells]);
 
     return (
-        <div className="animated-grid-background">
-            <div className="grid-container">
+        <div className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden bg-[#F8F8FF]">
+            <div 
+                className="w-full h-full grid gap-0"
+                style={{
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(50px, 1fr))',
+                    gridAutoRows: '50px',
+                }}
+            >
                 {Array.from({ length: totalCells }).map((_, i) => (
                     <div
                         key={i}
-                        className={`grid-cell ${filledCells.has(i) ? 'filled' : ''}`}
-                    ></div>
+                        className={`border border-black/[0.08] transition-all duration-500 ease-in-out ${
+                            filledCells.has(i) ? 'bg-black' : 'bg-transparent'
+                        }`}
+                    />
                 ))}
             </div>
+
+            <style>{`
+                @media (max-width: 400px) {
+                    .grid {
+                        grid-template-columns: repeat(auto-fill, minmax(25px, 1fr)) !important;
+                        grid-auto-rows: 25px !important;
+                    }
+                }
+                @media (min-width: 401px) and (max-width: 640px) {
+                    .grid {
+                        grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)) !important;
+                        grid-auto-rows: 30px !important;
+                    }
+                }
+                @media (min-width: 641px) and (max-width: 768px) {
+                    .grid {
+                        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+                        grid-auto-rows: 35px !important;
+                    }
+                }
+                @media (min-width: 769px) and (max-width: 1024px) {
+                    .grid {
+                        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)) !important;
+                        grid-auto-rows: 40px !important;
+                    }
+                }
+                @media (min-width: 1025px) and (max-width: 1280px) {
+                    .grid {
+                        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)) !important;
+                        grid-auto-rows: 45px !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };

@@ -8,7 +8,7 @@
 } */
 
 /* ANIMATED GRID BACKGROUND - Whole Screen Coverage */
-.animated-grid-background {
+/* .animated-grid-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,10 +37,10 @@
 .animated-grid-background .grid-cell.filled {
   background-color: #000000;
   opacity: 1;
-}
+} */
 
 /* Responsive Grid Sizes */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .animated-grid-background .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
     grid-auto-rows: 45px;
@@ -73,4 +73,4 @@
     grid-template-columns: repeat(auto-fill, minmax(25px, 1fr));
     grid-auto-rows: 25px;
   }
-}
+} */
