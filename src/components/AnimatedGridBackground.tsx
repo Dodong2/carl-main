@@ -57,7 +57,7 @@ export const AnimatedGridBackground = () => {
     }, [totalCells]);
 
     return (
-        <div className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden bg-[#F8F8FF]">
+        <div className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden bg-[#212529]">
             <div 
                 className="w-full h-full grid gap-0"
                 style={{
@@ -68,8 +68,8 @@ export const AnimatedGridBackground = () => {
                 {Array.from({ length: totalCells }).map((_, i) => (
                     <div
                         key={i}
-                        className={`border border-black/[0.08] transition-all duration-500 ease-in-out ${
-                            filledCells.has(i) ? 'bg-black' : 'bg-transparent'
+                        className={`border border-gray-600 transition-all duration-500 ease-in-out ${
+                            filledCells.has(i) ? 'bg-[#F8F8FF]' : 'bg-transparent'
                         }`}
                     />
                 ))}
