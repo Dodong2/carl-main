@@ -1,0 +1,31 @@
+/* global style */
+* {
+  box-sizing: border-box;
+}
+
+/* ROOT VARIABLES */
+:root {
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --font-xs: 8px;
+  --font-sm: 9px;
+  --font-md: 10px;
+}
+
+/* BODY */
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: #F8F8FF;
+  margin: 0;
+}
+
+/* NES COMPONENTS */
+.nes-text,
+.nes-btn {
+  font-size: var(--font-sm);
+  line-height: 1;
+}
