@@ -18,8 +18,14 @@
 }
 
 /* BODY */
-body {
+html, body, #root  {
   font-family: "Press Start 2P", cursive;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
   /* background-color: #F8F8FF; */
   /* background-color: #212529; */
   /* margin: 0; */
