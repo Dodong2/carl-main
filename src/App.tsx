@@ -1,7 +1,6 @@
 /* react-router-dom */
 import { lazy, Suspense, useRef } from 'react'
 /* react-router-dom */
-import { createHashRouter, RouterProvider } from 'react-router-dom'
 /* css */
 import './App.css'
 /* components */
@@ -12,19 +11,7 @@ import MainContainer from './components/MainContainer'
 import { ScrollContainerContext } from './context/ScrollContainerContext'
 
 /* pages */
-const Home = lazy(() => import('./pages/Home'))
-const Skills = lazy(() => import('./pages/Skills'))
-const Project = lazy(() => import('./pages/Project'))
-const Contact = lazy(() => import('./pages/Contact'))
-
-
-// router for page calling
-const router = createHashRouter([
-  { path: "/", element: <Home /> },
-  { path: "/skills", element: <Skills /> },
-  { path: "/projects", element: <Project /> },
-  { path: "/contact", element: <Contact /> },
-])
+const MainPage = lazy(() => import('./pages/MainPage'))
 
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -35,7 +22,7 @@ function App() {
       <ScrollContainerContext.Provider value={scrollContainerRef as React.RefObject<HTMLDivElement>}>
         <MainContainer ref={scrollContainerRef}>
           <Suspense fallback={<PageLoader />}>
-            <RouterProvider router={router} />
+            <MainPage />
           </Suspense>
         </MainContainer>
       </ScrollContainerContext.Provider>
