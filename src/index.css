@@ -35,3 +35,8 @@ html, body, #root  {
 .nes-text, .nes-btn {
   font-size: var(--font-xs);
 }
+
+/* for manual design */
+.image-rendering-pixelated {
+  image-rendering: pixelated;
+}

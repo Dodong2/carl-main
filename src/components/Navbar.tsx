@@ -1,4 +1,7 @@
+import { Circle, Square, Triangle, X } from "lucide-react"
+
 import { NavbarHooks } from "../hooks/NavbarHooks"
+
 
 const Navbar = () => {
     const { showController, showNav, toggleController, scrollTo } = NavbarHooks()
@@ -20,14 +23,29 @@ const Navbar = () => {
                 <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-30">
                     <div className="nes-container with-title is-centered bg-white is-rounded ">
                         <p className="title">controller</p>
-                        <div className="flex flex-col lg:flex-row gap-2">
-                            <div className="flex gap-2">
-                                <button className="nes-btn is-primary w-20" onClick={() => scrollTo("home")}>Home</button>
-                                <button className="nes-btn is-success w-20" onClick={() => scrollTo("skills")}>Skills</button>
+                        <div>
+                            {/* home */}
+                            <div className="flex items-center justify-center">
+                                <div className="flex justify-center items-center w-12 h-12 bg-[#212529] rounded-full overflow-hidden cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-75" onClick={() => scrollTo("home")}>
+                                    <Triangle className="text-green-400" />
+                                </div>
                             </div>
-                            <div className="flex gap-2">
-                                <button className="nes-btn is-warning w-20" onClick={() => scrollTo("projects")}>Project</button>
-                                <button className="nes-btn is-error w-20" onClick={() => scrollTo("contacts")}>Contact</button>
+
+                            {/* skills & projects */}
+                            <div className="flex justify-between items-center">
+                                <div className="flex justify-center items-center w-12 h-12 bg-[#212529] rounded-full overflow-hidden cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-75" onClick={() => scrollTo("skills")}>
+                                    <Square className="text-yellow-300" />
+                                </div>
+                                <div className="flex justify-center items-center w-12 h-12 bg-[#212529] rounded-full overflow-hidden cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-75" onClick={() => scrollTo("projects")}>
+                                    <Circle className="text-red-500" />
+                                </div>
+                            </div>
+
+                            {/* contacts */}
+                            <div className="flex items-center justify-center">
+                                <div className="flex justify-center items-center w-12 h-12 bg-[#212529] rounded-full overflow-hidden cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-75" onClick={() => scrollTo("contacts")}>
+                                    <X className="text-blue-400" />
+                                </div>
                             </div>
                         </div>
                     </div>
