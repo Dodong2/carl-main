@@ -5,7 +5,8 @@ import { lazy, Suspense, useRef } from 'react'
 import './App.css'
 /* components */
 import PageLoader from './components/PageLoader'
-import { AnimatedGridBackground } from './components/AnimatedGridBackground'
+// import { AnimatedGridBackground } from './components/AnimatedGridBackground'
+import MainBackground from './components/MainBackground'
 import MainContainer from './components/MainContainer'
 /* context */
 import { ScrollContainerContext } from './context/ScrollContainerContext'
@@ -18,7 +19,8 @@ function App() {
 
   return (
     <>
-      <AnimatedGridBackground />
+      {/* <AnimatedGridBackground /> */}
+      <MainBackground />
       <ScrollContainerContext.Provider value={scrollContainerRef as React.RefObject<HTMLDivElement>}>
         <MainContainer ref={scrollContainerRef}>
           <Suspense fallback={<PageLoader />}>
