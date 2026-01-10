@@ -1,1 +1,0 @@
-import{j as t}from"./index-BNpi_sPj.js";const s=()=>t.jsx("section",{id:"contacts",className:"min-h-screen p-10 border-2 border-blue-700",children:t.jsx("h1",{className:"text-white",children:"Contacts"})});export{s as default};
