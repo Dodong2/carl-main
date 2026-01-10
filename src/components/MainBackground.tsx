@@ -49,7 +49,7 @@ const MainBackground = () => {
 
       // Desktop center | Mobile right-aligned
       if (window.innerWidth < 768) {
-        sprite.x = window.innerWidth - sprite.width;
+        sprite.x = window.innerWidth - sprite.width + 50;
       } else {
         sprite.x = (window.innerWidth - sprite.width) / 2;
       }
