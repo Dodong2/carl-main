@@ -1,0 +1,1 @@
+import{j as e}from"./index-CDj8AShb.js";const s=()=>e.jsx("section",{id:"projects",className:"min-h-screen p-10 border-2 border-orange-600",children:e.jsx("h1",{className:"text-white",children:"Projects"})});export{s as default};
