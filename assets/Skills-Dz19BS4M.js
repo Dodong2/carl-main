@@ -1,1 +1,0 @@
-import{j as s}from"./index-DjoQn_4k.js";const r=()=>s.jsx("section",{id:"skills",className:"min-h-screen p-10 border-2 border-amber-400",children:s.jsx("div",{className:"nes-container is-rounded bg-[rgba(225,225,225,0.9)]",children:s.jsx("p",{children:"Good morning. Thou hast had a good night's sleep, I hope."})})});export{r as default};
