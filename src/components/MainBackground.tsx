@@ -7,14 +7,17 @@ const MainBackground = () => {
   const [app, setApp] = useState<PixiApp | null>(null);
   const [isLoaded, setIsLoaded] = useState(false)
   const spriteRef = useRef<Sprite | null>(null);
-  const fixedHeightRef = useRef<number>(0); // ✅ Store initial height
 
   useEffect(() => {
     const loadTexture = async () => {
       try {
+        // Load texture
         const texture = await Assets.load(MainBG);
+        
+        // ✅ PIXEL PERFECT - No blur
         texture.source.scaleMode = "nearest";
 
+        // Create sprite
         const newSprite = new Sprite(texture);
         spriteRef.current = newSprite;
         setIsLoaded(true)
@@ -24,9 +27,6 @@ const MainBackground = () => {
     };
 
     loadTexture();
-
-    // ✅ Capture initial viewport height (before Chrome toolbar hides)
-    fixedHeightRef.current = window.innerHeight;
   }, []);
 
   useEffect(() => {
@@ -40,41 +40,28 @@ const MainBackground = () => {
       if (!sprite) return;
       
       const texture = sprite.texture;
-      
-      // ✅ Use FIXED height instead of dynamic window.innerHeight
-      const viewportHeight = fixedHeightRef.current || window.innerHeight;
-      
       const scale = Math.max(
         window.innerWidth / texture.width,
-        viewportHeight / texture.height
+        window.innerHeight / texture.height
       );
 
       sprite.scale.set(scale);
 
       // Desktop center | Mobile right-aligned
       if (window.innerWidth < 768) {
-        sprite.x = window.innerWidth - sprite.width + 100;
+        sprite.x = window.innerWidth - sprite.width + 50;
       } else {
         sprite.x = (window.innerWidth - sprite.width) / 2;
       }
 
-      sprite.y = (viewportHeight - sprite.height) / 2;
+      sprite.y = (window.innerHeight - sprite.height) / 2;
     };
 
     resize();
-    
-    // ✅ Only listen to width changes, ignore height changes on mobile
-    let resizeTimeout: number;
-    const debouncedResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = window.setTimeout(resize, 100);
-    };
-
-    window.addEventListener("resize", debouncedResize);
+    window.addEventListener("resize", resize);
 
     return () => {
-      window.removeEventListener("resize", debouncedResize);
-      clearTimeout(resizeTimeout);
+      window.removeEventListener("resize", resize);
       if (sprite && stage.children.includes(sprite)) {
         stage.removeChild(sprite);
       }

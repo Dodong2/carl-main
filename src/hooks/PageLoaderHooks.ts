@@ -8,14 +8,14 @@ const PageLoaderHooks = ({ minLoadTime, onComplete }: PageLoaderProps) => {
     useEffect(() => {
         const progressInterval = setInterval(() => {
             setProgress((prev) => {
-                if (prev >= 300) {
+                if (prev >= 100) {
                     clearInterval(progressInterval)
                     setTimeout(() => {
                         onComplete?.()
                     }, 300) // 300ms delay para makita yung 100%
-                    return 300
+                    return 100
                 }
-                return prev + 6 // adjust speed ng progress bar
+                return prev + 2 // adjust speed ng progress bar
             })
         }, minLoadTime / 50) // divide para smooth yung animation
 
