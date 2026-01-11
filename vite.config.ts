@@ -18,7 +18,7 @@ const PwaManifest: Partial<VitePWAOptions> = {
         type: 'image/png'
       },
     ],
-    theme_color: '	#303030',
+    theme_color: '#303030',
     background_color: '#303030',
     orientation: 'portrait',
   },

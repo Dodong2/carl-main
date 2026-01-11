@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react"
 /* components */
 import Navbar from "../components/Navbar"
-import PageLoader from "../components/PageLoader"
+import SampleLoading from "../components/loadings/SampleLoading"
 
 /* pages */
 const Home = lazy(() => import('./Home'))
@@ -18,7 +18,7 @@ const MainPage = () => {
   return (
     <>
         <Navbar />
-        <Suspense fallback={<PageLoader/>}>
+        <Suspense fallback={<SampleLoading/>}>
             <Home/>
             <Game1/>
             <Skills/>

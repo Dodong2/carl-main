@@ -4,7 +4,8 @@ import { lazy, Suspense, useRef } from 'react'
 /* css */
 import './App.css'
 /* components */
-import PageLoader from './components/PageLoader'
+import FirstPageLoader from './components/loadings/FirstPageLoader'
+import SampleLoader from './components/loadings/SampleLoading'
 // import { AnimatedGridBackground } from './components/AnimatedGridBackground'
 import MainBackground from './components/MainBackground'
 import MainContainer from './components/MainContainer'
@@ -16,14 +17,15 @@ const MainPage = lazy(() => import('./pages/MainPage'))
 
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-
+  
   return (
     <>
       {/* <AnimatedGridBackground /> */}
       <MainBackground />
+      <FirstPageLoader/>
       <ScrollContainerContext.Provider value={scrollContainerRef as React.RefObject<HTMLDivElement>}>
         <MainContainer ref={scrollContainerRef}>
-          <Suspense fallback={<PageLoader />}>
+          <Suspense fallback={<SampleLoader />}>
             <MainPage />
           </Suspense>
         </MainContainer>
