@@ -1,10 +1,8 @@
-import { useState, useEffect, useRef, useContext } from "react"
-import { ScrollContainerContext } from "../context/ScrollContainerContext"
+import { useState, useEffect, useRef } from "react"
 
 export const NavbarHooks = () => {
     const [showController, setShowController] = useState(false)
     const [showNav, setShowNav] = useState(true)
-    const scrollContainerRef = useContext(ScrollContainerContext)
 
     // show controller
     const toggleController = () => {
@@ -14,11 +12,10 @@ export const NavbarHooks = () => {
     // helper for scroll router for smooth navigation
     const scrollTo = (id: string) => {
         const element = document.getElementById(id)
-        const container = scrollContainerRef?.current
 
-        if (element && container) {
+        if (element) {
             const elementTop = element.offsetTop
-            container.scrollTo({
+            window.scrollTo({
                 top: elementTop,
                 behavior: "smooth"
             })
@@ -31,11 +28,9 @@ export const NavbarHooks = () => {
     const idleTimer = useRef<number | null>(null)
 
     useEffect(() => {
-        const container = scrollContainerRef?.current
-        if (!container) return
 
         const handleScroll = () => {
-            const currentScrollY = container.scrollTop
+            const currentScrollY = window.scrollY
 
             // always show navbar kapag nasa pinaka-taas
             if (currentScrollY === 0) {
@@ -73,13 +68,13 @@ export const NavbarHooks = () => {
             lastScrollY.current = currentScrollY
         }
 
-        container.addEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll)
 
         return () => {
-            container.removeEventListener("scroll", handleScroll)
+            window.removeEventListener("scroll", handleScroll)
             if (idleTimer.current) clearTimeout(idleTimer.current)
         }
-    }, [scrollContainerRef])
+    }, [])
 
     return { showController, showNav, toggleController, scrollTo }
 }

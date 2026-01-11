@@ -1,5 +1,5 @@
 /* react-router-dom */
-import { lazy, Suspense, useRef } from 'react'
+import { lazy, Suspense } from 'react'
 /* react-router-dom */
 /* css */
 import './App.css'
@@ -10,26 +10,22 @@ import SampleLoader from './components/loadings/SampleLoading'
 import MainBackground from './components/MainBackground'
 import MainContainer from './components/MainContainer'
 /* context */
-import { ScrollContainerContext } from './context/ScrollContainerContext'
 
 /* pages */
 const MainPage = lazy(() => import('./pages/MainPage'))
 
 function App() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
   
   return (
     <>
       {/* <AnimatedGridBackground /> */}
       <MainBackground />
       <FirstPageLoader/>
-      <ScrollContainerContext.Provider value={scrollContainerRef as React.RefObject<HTMLDivElement>}>
-        <MainContainer ref={scrollContainerRef}>
+        <MainContainer>
           <Suspense fallback={<SampleLoader />}>
             <MainPage />
           </Suspense>
         </MainContainer>
-      </ScrollContainerContext.Provider>
     </>
   )
 }

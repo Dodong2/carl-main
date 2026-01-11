@@ -1,5 +1,5 @@
 /* Loading */
-export type PageLoaderProps = {
+export interface PageLoaderProps {
     minLoadTime: number
     onComplete?: () => void
 }

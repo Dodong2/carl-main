@@ -7,13 +7,14 @@ const MainBackground = () => {
   const [app, setApp] = useState<PixiApp | null>(null);
   const [isLoaded, setIsLoaded] = useState(false)
   const spriteRef = useRef<Sprite | null>(null);
+  const fixedHeightRef = useRef<number>(0)
 
   useEffect(() => {
     const loadTexture = async () => {
       try {
         // Load texture
         const texture = await Assets.load(MainBG);
-        
+
         // ✅ PIXEL PERFECT - No blur
         texture.source.scaleMode = "nearest";
 
@@ -27,6 +28,7 @@ const MainBackground = () => {
     };
 
     loadTexture();
+    fixedHeightRef.current = window.innerHeight;
   }, []);
 
   useEffect(() => {
@@ -38,11 +40,14 @@ const MainBackground = () => {
 
     const resize = () => {
       if (!sprite) return;
-      
+
       const texture = sprite.texture;
+
+      const viewportHeight = fixedHeightRef.current || window.innerHeight;
+
       const scale = Math.max(
         window.innerWidth / texture.width,
-        window.innerHeight / texture.height
+        viewportHeight / texture.height
       );
 
       sprite.scale.set(scale);
@@ -54,14 +59,22 @@ const MainBackground = () => {
         sprite.x = (window.innerWidth - sprite.width) / 2;
       }
 
-      sprite.y = (window.innerHeight - sprite.height) / 2;
+      sprite.y = (viewportHeight - sprite.height) / 2;
     };
 
     resize();
-    window.addEventListener("resize", resize);
+
+    let resizeTimeout: number;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(resize, 100);
+    };
+
+    window.addEventListener("resize", debouncedResize);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", debouncedResize);
+      clearTimeout(resizeTimeout)
       if (sprite && stage.children.includes(sprite)) {
         stage.removeChild(sprite);
       }
