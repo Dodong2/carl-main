@@ -54,7 +54,7 @@ const MainBackground = () => {
 
       // Desktop center | Mobile right-aligned
       if (window.innerWidth < 768) {
-        sprite.x = window.innerWidth - sprite.width + 100;
+        sprite.x = window.innerWidth - sprite.width + 120;
       } else {
         sprite.x = (window.innerWidth - sprite.width) / 2;
       }
@@ -82,7 +82,7 @@ const MainBackground = () => {
   }, [app, isLoaded]);
 
   return (
-    <div className="fixed inset-0 -z-10" style={{ height: '100dvh' }}>
+    <div className="fixed inset-0 -z-10">
       <Application
         background="transparent"
         resizeTo={window}
