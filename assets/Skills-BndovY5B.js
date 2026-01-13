@@ -1,4 +1,4 @@
-import{r as i,j as e}from"./index-Dta9UGzq.js";const n=({data:a,viewMode:A})=>{const[t,l]=i.useState(!1);return e.jsxs("div",{className:`
+import{r as i,j as e}from"./index-BIy595r3.js";const n=({data:a,viewMode:A})=>{const[t,l]=i.useState(!1);return e.jsxs("div",{className:`
         relative bg-[#1a1a2e] border-4 border-white rounded-sm overflow-hidden
         cursor-pointer transition-all duration-300 
         shadow-[8px_8px_0px_rgba(0,0,0,0.3)]
