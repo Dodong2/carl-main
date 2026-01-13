@@ -6,7 +6,7 @@ const PageLoader = ({ minLoadTime = 2000, onComplete }: PageLoaderProps) => {
 
   return (
     <div className="bg-[#303030] h-screen z-50 flex items-center justify-center px-4 py-4 relative">
-      <div className="absolute w-full max-w-md">
+      <div className="absolute w-full max-w-md p-3">
         <p className="mb-1 text-sm text-left text-white">
           LOADING QUEST...
         </p>

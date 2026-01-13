@@ -1,8 +1,10 @@
 /* components */
 import RetroContainer from "../components/RetroPixelUI/RetroContainer"
 import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
+import Images from "../components/Images"
 /* images */
 import Me from '../assets/images/Me.png'
+import Sword from '../assets/images/sword-chatgpt-removeBG.png'
 /* hooks */
 import { HomeHooks } from "../hooks/HomeHooks"
 /* icons */
@@ -14,7 +16,7 @@ const Home = () => {
     <>
       {/* home - sections */}
       <section id="home" className="min-h-screen">
-        <div className="flex flex-col items-center p-5 mt-40 justify-evenly lg:flex-row">
+        <div className="flex flex-col items-center justify-center p-5 mt-40 lg:gap-2 lg:flex-row">
           {/* <Images src={Sword} alt="sword" className="image-rendering-pixelated" /> */}
           <div className="grid md:gap-0 sm:gap-0 lg:gap-2">
             <RetroCircleImage
@@ -28,6 +30,23 @@ const Home = () => {
               <button className="nes-btn is-success">Resume/Stats</button>
             )}
           </div>
+          <div>
+            <RetroContainer size="lg" title="Carl">
+              <div className="text-xs leading-relaxed sm:text-sm md:text-base">
+                Hi, I am Carl Stephen Arocha
+                I am a Vibe coder for now.
+              </div>
+              <div className="flex justify-end mt-1">
+                <button className="relative" onClick={reachCount}>
+                  {showResume ? '' : <><span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">continue</span></> }
+                </button>
+              </div>
+            </RetroContainer>
+
+          </div>
+        </div>
+        <div className="flex flex-col items-center p-5 mt-40 justify-evenly lg:flex-row">
+          <Images src={Sword} alt="sword" className="image-rendering-pixelated" />
           <div>
             <RetroContainer size="lg" title="Carl">
               <div className="text-xs leading-relaxed sm:text-sm md:text-base">
