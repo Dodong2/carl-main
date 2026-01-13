@@ -5,17 +5,17 @@ const PageLoader = ({ minLoadTime = 2000, onComplete }: PageLoaderProps) => {
   const { progress } = PageLoaderHooks({ minLoadTime, onComplete })
 
   return (
-    <div className="bg-[#303030] h-screen z-50 flex items-center justify-center px-4 relative">
-      <div className="w-full max-w-md absolute">
-        <p className="text-white text-left mb-1 text-sm">
+    <div className="bg-[#303030] h-screen z-50 flex items-center justify-center px-4 py-4 relative">
+      <div className="absolute w-full max-w-md">
+        <p className="mb-1 text-sm text-left text-white">
           LOADING QUEST...
         </p>
 
         {/* Custom Pixel Progress Bar */}
-        <div className="w-full h-8 bg-gray-800 border-4 border-gray-600 relative overflow-hidden">
+        <div className="relative w-full h-8 overflow-hidden bg-gray-800 border-4 border-gray-600">
           {/* Progress Fill */}
           <div
-            className="h-full bg-linear-to-r from-sky-400 to-sky-500 transition-all duration-300 ease-out"
+            className="h-full transition-all duration-300 ease-out bg-linear-to-r from-sky-400 to-sky-500"
             style={{ width: `${progress}%` }}
           />
 

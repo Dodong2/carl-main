@@ -17,9 +17,9 @@ const RetroContainer = ({
 }: RetroContainerProps) => {
   
   const sizeClasses = {
-    sm: 'max-w-sm p-3 text-xs',
+    sm: 'max-w-sm p-2 text-xs',
     md: 'max-w-md p-4 text-sm',
-    lg: 'max-w-lg p-6 text-base',
+    lg: 'max-w-lg p-5 text-base',
     xl: 'max-w-xl p-8 text-lg'
   }
 
@@ -62,7 +62,7 @@ const RetroContainer = ({
     <div className={`${variants[variant]} ${sizeClasses[size]} ${className} w-full`}>
       {/* Title Bar */}
       {title && (
-        <div className="absolute -top-3 left-4 px-2 bg-gray-800 border-2 border-white">
+        <div className="absolute px-2 bg-gray-800 border-2 border-white -top-3 left-4">
           <span className="text-white font-['Press_Start_2P'] text-[10px] sm:text-xs">
             {title}
           </span>
@@ -71,7 +71,7 @@ const RetroContainer = ({
 
       {/* Pixel Grid Overlay */}
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-10"
         style={{
           backgroundImage: `
             repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px),
@@ -81,7 +81,7 @@ const RetroContainer = ({
       />
 
       {/* Content */}
-      <div className="relative z-10 text-white leading-relaxed">
+      <div className="relative z-10 leading-relaxed text-white">
         {children}
       </div>
     </div>
@@ -101,7 +101,7 @@ export default RetroContainer
 
 // // NES Style
 // <RetroContainer variant="nes" size="lg" title="GAME MENU">
-//   <h2 className="text-xl mb-4">Select Option</h2>
+//   <h2 className="mb-4 text-xl">Select Option</h2>
 //   <ul className="space-y-2">
 //     <li>▶ Continue</li>
 //     <li>  New Game</li>
@@ -124,10 +124,10 @@ export default RetroContainer
 
 // // Responsive text example
 // <RetroContainer size="lg" title="MISSION BRIEF">
-//   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-2">
+//   <h3 className="mb-2 text-sm sm:text-base md:text-lg lg:text-xl">
 //     Quest: Save the Kingdom
 //   </h3>
-//   <p className="text-xs sm:text-sm md:text-base leading-relaxed">
+//   <p className="text-xs leading-relaxed sm:text-sm md:text-base">
 //     The dark lord has stolen the sacred crystal. 
 //     Journey through 8 dungeons to retrieve it and restore peace.
 //   </p>

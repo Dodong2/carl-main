@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RetroCard from "../components/RetroCard"
+import RetroCard from "./RetroPixelUI/RetroCard"
 import { initialCards } from "../data/retroCards";
 import type { ViewMode, RetroCardData } from "../types/shared-types";
 

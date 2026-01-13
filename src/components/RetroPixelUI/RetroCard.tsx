@@ -1,6 +1,6 @@
 // components/RetroCard.tsx
 import { useState } from 'react';
-import type { RetroCardData } from '../types/shared-types';
+import type { RetroCardData } from '../../types/shared-types';
 
 interface RetroCardProps {
   data: RetroCardData;

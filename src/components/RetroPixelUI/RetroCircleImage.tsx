@@ -107,6 +107,8 @@ const RetroCircleImage = ({
       <img 
         src={src} 
         alt={alt}
+        loading="lazy"
+        decoding="async" 
         className={`
           w-full h-full object-cover
           transition-transform duration-500
@@ -136,7 +138,7 @@ const RetroCircleImage = ({
 
       {/* Badge */}
       {badge && (
-        <div className="absolute top-2 right-2 bg-red-500 text-white text-[8px] px-2 py-1 font-['Press_Start_2P'] shadow-lg z-10"
+        <div className="absolute top-2 right-8 bg-red-500 text-white text-[8px] px-2 py-1 font-['Press_Start_2P'] shadow-lg z-10"
         style={{
           clipPath: 'polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%)'
         }}>
@@ -162,3 +164,63 @@ const RetroCircleImage = ({
 };
 
 export default RetroCircleImage;
+
+/* USAGE */
+//  {/* Circle Image - Default */}
+//         <RetroCircleImage
+//           size="lg"
+//           variant="default"
+//           src={Me}
+//           alt="Mario"
+//           badge="HERO"
+//         />
+
+//         {/* Circle Image - NES Style */}
+//         <RetroCircleImage
+//           size="lg"
+//           variant="nes"
+//           src={Me}
+//           alt="Pac-Man"
+//         />
+
+//         {/* Circle Image - Arcade Style */}
+//         <RetroCircleImage
+//           size="lg"
+//           variant="arcade"
+//           src={Me}
+//           alt="Sonic"
+//           badge="FAST"
+//         />
+
+//         {/* Circle Image - Neon Style */}
+//         <RetroCircleImage
+//           size="lg"
+//           variant="neon"
+//           src={Me}
+//           alt="Link"
+//         />
+
+//         {/* Circle Image - Glitch Style */}
+//         <RetroCircleImage
+//           size="lg"
+//           variant="glitch"
+//           src={Me}
+//           alt="Ryu"
+//           badge="WARRIOR"
+//         />
+
+//         {/* Mixed Example */}
+//         <RetroCircleContainer size="xl" variant="nes">
+//           <RetroCircleImage
+//             size="sm"
+//             variant="neon"
+//             src={Me}
+//             alt="Samus"
+//           />
+//           <h3 className="text-white font-['Press_Start_2P'] text-xs mt-4 mb-2">
+//             SAMUS
+//           </h3>
+//           <button className="bg-yellow-400 text-gray-900 px-3 py-1 text-[8px] font-['Press_Start_2P'] hover:bg-yellow-300 transition-colors">
+//             SELECT
+//           </button>
+//         </RetroCircleContainer>

@@ -1,8 +1,8 @@
 // components/RetroCardContainer.tsx
 import { useState } from 'react';
 import RetroCard from './RetroCard';
-import type { RetroCardData, ViewMode } from '../types/shared-types';
-import { initialCards } from '../data/retroCards';
+import type { RetroCardData, ViewMode } from '../../types/shared-types';
+import { initialCards } from '../../data/retroCards';
 
 const RetroCardContainer = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
@@ -45,9 +45,9 @@ const RetroCardContainer = () => {
         }}
       />
 
-      <div className="max-w-170 w-full mx-auto relative z-10">
+      <div className="relative z-10 w-full mx-auto max-w-170">
         {/* Header */}
-        <header className="text-center mb-8 py-4">
+        <header className="py-4 mb-8 text-center">
           <h1 className="text-2xl sm:text-3xl tracking-wider text-[#92f29c] mb-2.5 animate-pulse"
             style={{ textShadow: '4px 4px 0 rgba(0,0,0,0.6)' }}>
             PIXEL LEGENDS
@@ -58,7 +58,7 @@ const RetroCardContainer = () => {
         </header>
 
         {/* Controls */}
-        <div className="flex justify-center mb-5 gap-4 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-4 mb-5">
           <button
             className={`
               border-2 px-4 py-2 text-[10px] transition-all duration-200

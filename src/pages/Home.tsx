@@ -1,26 +1,46 @@
 /* components */
-import Images from "../components/Images"
-import RetroContainer from "../components/RetroContainer"
+import RetroContainer from "../components/RetroPixelUI/RetroContainer"
+import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
 /* images */
-import Sword from "../assets/images/sword-chatgpt-removeBG.png"
+import Me from '../assets/images/Me.png'
+/* hooks */
+import { HomeHooks } from "../hooks/HomeHooks"
+/* icons */
 
 const Home = () => {
+  const { showResume, reachCount } = HomeHooks()
+
   return (
     <>
       {/* home - sections */}
-      <section id="home" className="min-h-screen p-10">
-        <div className="flex flex-col items-center justify-around lg:flex-row">
-          <Images src={Sword} alt="sword" className="image-rendering-pixelated" />
+      <section id="home" className="min-h-screen">
+        <div className="flex flex-col items-center p-5 mt-40 justify-evenly lg:flex-row">
+          {/* <Images src={Sword} alt="sword" className="image-rendering-pixelated" /> */}
+          <div className="grid md:gap-0 sm:gap-0 lg:gap-2">
+            <RetroCircleImage
+              size="lg"
+              variant="glitch"
+              src={Me}
+              alt="Ryu"
+              badge="WARRIOR"
+            />
+            {showResume && (
+              <button className="nes-btn is-success">Resume/Stats</button>
+            )}
+          </div>
           <div>
-            <RetroContainer size="lg" title="MISSION BRIEF">
-              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl mb-2">
-                Quest: Save the Kingdom
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base leading-relaxed">
-                The dark lord has stolen the sacred crystal.
-                Journey through 8 dungeons to retrieve it and restore peace.
-              </p>
+            <RetroContainer size="lg" title="Carl">
+              <div className="text-xs leading-relaxed sm:text-sm md:text-base">
+                Hi, I am Carl Stephen Arocha
+                I am a Vibe coder for now.
+              </div>
+              <div className="flex justify-end mt-1">
+                <button className="relative" onClick={reachCount}>
+                  {showResume ? '' : <><span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">continue</span></> }
+                </button>
+              </div>
             </RetroContainer>
+
           </div>
         </div>
       </section>
