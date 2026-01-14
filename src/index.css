@@ -37,9 +37,9 @@ html, body, #root  {
 }
 
 /* NES COMPONENTS */
-/* .nes-text, .nes-btn {
+.nes-text, .nes-btn {
   font-size: var(--font-xs);
-} */
+}
 
 /* for manual design */
 .image-rendering-pixelated {
