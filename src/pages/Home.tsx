@@ -1,13 +1,10 @@
+/* Data */
+import { HomeData } from "../data/HomeData"
 /* components */
 import RetroContainer from "../components/RetroPixelUI/RetroContainer"
 import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
-// import Images from "../components/Images"
-/* images */
-import Me from '../assets/images/Me.png'
-// import Sword from '../assets/images/sword-chatgpt-removeBG.png'
 /* hooks */
 import { HomeHooks } from "../hooks/HomeHooks"
-/* icons */
 
 const Home = () => {
   const { showResume, displayedText, showContinue, handleContinue } = HomeHooks()
@@ -16,18 +13,18 @@ const Home = () => {
     <>
       {/* home - sections */}
       <section id="home" className="min-h-screen">
-        <div className="flex flex-col items-center justify-center p-5 mt-40 lg:gap-4 lg:flex-row">
-          {/* <Images src={Sword} alt="sword" className="image-rendering-pixelated" /> */}
+        {HomeData.map((home) => (
+        <div className="flex flex-col items-center justify-center p-5 mt-40 lg:gap-4 lg:flex-row" key={home.id}>
           <div className="grid md:gap-0 sm:gap-0 lg:gap-2">
             <RetroCircleImage
               size="lg"
               variant="glitch"
-              src={Me}
+              src={home.image}
               alt="Ryu"
               badge="WARRIOR"
             />
             {showResume && (
-              <button className="nes-btn is-success">Resume/Stats</button>
+              <button className="nes-btn is-success">{home.buttonLabels[0].label}</button>
             )}
           </div>
           <div>
@@ -39,7 +36,7 @@ const Home = () => {
               <div className="flex justify-end mt-1">
                 {showContinue && !showResume && (
                 <button className="relative animate-pulse" onClick={handleContinue}>
-                  <span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">continue</span>
+                  <span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">{home.buttonLabels[1].label}</span>
                 </button>
                 )}
               </div>
@@ -47,6 +44,7 @@ const Home = () => {
 
           </div>
         </div>
+        ))}
       </section>
     </>
   )

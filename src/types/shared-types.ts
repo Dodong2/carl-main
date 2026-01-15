@@ -21,3 +21,13 @@ export interface RetroCardData {
 }
 
 export type ViewMode = 'grid' | 'list';
+
+interface buttonLabel {
+    label: string
+}
+export interface HomeTypes {
+    id: string
+    image: string
+    dialogue: string[]
+    buttonLabels: buttonLabel[]
+}

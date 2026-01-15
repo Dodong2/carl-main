@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { HomeData } from "../data/HomeData"
 
 export const HomeHooks = () => {
     const [showResume, setShowResume] = useState(false)
@@ -7,13 +8,8 @@ export const HomeHooks = () => {
     const [isTyping, setIsTyping] = useState(true)
     const [showContinue, setShowContinue] = useState(false)
 
-    const dialogues = [
-        "Greetings! My name is Carl Stephen Arocha. I'm currently a fourth-year BSIT student and a vibe coder full stack developer.",
-        "As a web developer, I'm still at the beginner level, but I'm constantly learning and building projects to level up my skills.",
-        "I'm eager to expand my portfolio and open to collaborating on projects that match my skill set. Check out my skills and experience below!",
-        "Please click continue to view my resume and see what this warrior can bring to the table!",
-        "Thank you for taking the time to learn more about me. Let's build something awesome together!"
-    ]
+    const home = HomeData[0]
+    const dialogues = home.dialogue
 
     useEffect(() => {
         if (textIndex >= dialogues.length) return
