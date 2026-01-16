@@ -1,4 +1,4 @@
-import{j as e}from"./index-CCjy6rJs.js";const t=({children:r,size:s="md",variant:a="default",className:n=""})=>{const x={sm:"w-32 h-32 p-3",md:"w-48 h-48 p-4",lg:"w-64 h-64 p-6",xl:"w-80 h-80 p-8"},i={default:`
+import{j as e}from"./index-7ZJpFNx-.js";const t=({children:r,size:s="md",variant:a="default",className:n=""})=>{const x={sm:"w-32 h-32 p-3",md:"w-48 h-48 p-4",lg:"w-64 h-64 p-6",xl:"w-80 h-80 p-8"},i={default:`
       bg-gradient-to-br from-gray-800 to-gray-900 
       border-white 
       shadow-[8px_8px_0px_rgba(0,0,0,0.8)]
