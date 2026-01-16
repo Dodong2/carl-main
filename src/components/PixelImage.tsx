@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Application as PixiApp, Sprite, Assets, Container } from 'pixi.js';
+import { useEffect, useRef } from 'react';
+import { Application as PixiApp, Sprite, Assets } from 'pixi.js';
 
 // ============================================
 // PIXEL PERFECT IMAGE COMPONENT
@@ -21,7 +21,7 @@ export const PixelImage = ({ src, width = 64, height = 64, className = '' }: Pix
     const initPixi = async () => {
       try {
         const app = new PixiApp();
-        
+
         await app.init({
           width,
           height,
@@ -40,7 +40,7 @@ export const PixelImage = ({ src, width = 64, height = 64, className = '' }: Pix
 
         // Load texture
         const texture = await Assets.load(src);
-        
+
         if (!mounted) {
           app.destroy(true);
           return;
@@ -50,11 +50,11 @@ export const PixelImage = ({ src, width = 64, height = 64, className = '' }: Pix
         texture.source.scaleMode = "nearest";
 
         const sprite = new Sprite(texture);
-        
+
         // Scale to fit container while maintaining aspect ratio
         const scale = Math.min(width / texture.width, height / texture.height);
         sprite.scale.set(scale);
-        
+
         // Center the sprite
         sprite.x = (width - sprite.width) / 2;
         sprite.y = (height - sprite.height) / 2;
