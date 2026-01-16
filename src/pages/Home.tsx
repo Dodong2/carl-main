@@ -3,6 +3,7 @@ import { HomeData } from "../data/HomeData"
 /* components */
 import RetroContainer from "../components/RetroPixelUI/RetroContainer"
 import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
+import RetroButton from "../components/RetroPixelUI/RetroButton"
 /* hooks */
 import { HomeHooks } from "../hooks/HomeHooks"
 
@@ -15,7 +16,7 @@ const Home = () => {
       <section id="home" className="min-h-screen">
         {HomeData.map((home) => (
         <div className="flex flex-col items-center justify-center p-5 mt-40 lg:gap-4 lg:flex-row" key={home.id}>
-          <div className="grid md:gap-0 sm:gap-0 lg:gap-2">
+          <div className="grid md:gap-0 sm:gap-0 lg:gap-1">
             <RetroCircleImage
               size="lg"
               variant="glitch"
@@ -24,7 +25,7 @@ const Home = () => {
               badge="WARRIOR"
             />
             {showResume && (
-              <button className="nes-btn is-success">{home.buttonLabels[0].label}</button>
+              <RetroButton color="red">{home.buttonLabels[0].label}</RetroButton>
             )}
           </div>
           <div>

@@ -20,6 +20,7 @@
 /* BODY */
 html, body, #root  {
   font-family: "Press Start 2P", cursive;
+  /* text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; */
   overflow: hidden;
   width: 100%;
   margin: 0;
