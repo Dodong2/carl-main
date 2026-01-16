@@ -31,3 +31,9 @@ export interface HomeTypes {
     dialogue: string[]
     buttonLabels: buttonLabel[]
 }
+
+export interface SkillsTypes {
+    id: string
+    image: string
+    title: string
+}

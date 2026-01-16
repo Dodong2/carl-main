@@ -1,15 +1,14 @@
-import { PixelImage } from "../components/PixelImage"
-import TestImage from '../assets/rpgui/img/icons/helmet-slot.png'
+/* components */
+import PageTitle from "../components/PageTitle"
+/* images */
+import RingSlot from '../assets/rpgui/img/icons/ring-slot.png'
 
 const Contact = () => {
   return (
-    <section id="contacts" className="min-h-screen p-10 border-2 border-blue-700">
-      <h1 className="text-white">Contacts</h1>
-      <PixelImage
-        src={TestImage}
-        width={64}
-        height={64}
-      />
+    <section id="contacts" className="min-h-screen border-2 border-blue-700">
+      <div className="p-3">
+        <PageTitle image={RingSlot} title="Contacts" />
+      </div>
     </section>
   )
 }

@@ -11,10 +11,8 @@ const Home = () => {
   const { showResume, displayedText, showContinue, handleContinue } = HomeHooks()
 
   return (
-    <>
-      {/* home - sections */}
-      <section id="home" className="min-h-screen">
-        {HomeData.map((home) => (
+    <section id="home" className="min-h-screen">
+      {HomeData.map((home) => (
         <div className="flex flex-col items-center justify-center p-5 mt-40 lg:gap-4 lg:flex-row" key={home.id}>
           <div className="grid md:gap-0 sm:gap-0 lg:gap-1">
             <RetroCircleImage
@@ -28,6 +26,7 @@ const Home = () => {
               <RetroButton color="red">{home.buttonLabels[0].label}</RetroButton>
             )}
           </div>
+
           <div>
             <RetroContainer size="lg" title="Carl">
               <div className="text-xs leading-relaxed sm:text-sm md:text-base">
@@ -36,18 +35,16 @@ const Home = () => {
               </div>
               <div className="flex justify-end mt-1">
                 {showContinue && !showResume && (
-                <button className="relative animate-pulse" onClick={handleContinue}>
-                  <span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">{home.buttonLabels[1].label}</span>
-                </button>
+                  <button className="relative animate-pulse" onClick={handleContinue}>
+                    <span className="absolute -top-1/14 -left-5">▶</span><span className="text-center">{home.buttonLabels[1].label}</span>
+                  </button>
                 )}
               </div>
             </RetroContainer>
-
           </div>
         </div>
-        ))}
-      </section>
-    </>
+      ))}
+    </section>
   )
 }
 
