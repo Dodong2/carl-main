@@ -1,0 +1,1 @@
+import{j as s}from"./index-Bx7a_7Tt.js";import{P as t}from"./PageTitle-B-gs8xE4.js";const e="/carl-main/assets/ring-slot-ChkTKWqe.png",n=()=>s.jsx("section",{id:"contacts",className:"min-h-screen border-2 border-blue-700",children:s.jsx("div",{className:"p-3",children:s.jsx(t,{image:e,title:"Contacts"})})});export{n as default};
