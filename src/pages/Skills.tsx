@@ -2,6 +2,7 @@
 import { SkillsData } from '../data/SkillsData'
 /* components */
 import PageTitle from '../components/PageTitle'
+import RetroGameCards from '../components/RetroGameCards'
 
 const Skills = () => {
   return (
@@ -9,6 +10,7 @@ const Skills = () => {
       {SkillsData.map((skill) => (
         <div className="p-3" key={skill.id}>
           <PageTitle image={skill.image} title={skill.title} />
+          <RetroGameCards />
         </div>
       ))}
 

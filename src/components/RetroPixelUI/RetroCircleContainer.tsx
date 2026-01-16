@@ -6,20 +6,38 @@ interface RetroCircleContainerProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'default' | 'nes' | 'gameboy' | 'neon';
   className?: string;
+  badgeIcon?: ReactNode;
+  badgeColor?: string;
 }
 
-const RetroCircleContainer = ({ 
-  children, 
+const RetroCircleContainer = ({
+  children,
   size = 'md',
   variant = 'default',
-  className = '' 
+  className = '',
+  badgeIcon,
+  badgeColor = 'bg-red-500'
 }: RetroCircleContainerProps) => {
-  
+
   const sizeClasses = {
     sm: 'w-32 h-32 p-3',
     md: 'w-48 h-48 p-4',
     lg: 'w-64 h-64 p-6',
     xl: 'w-80 h-80 p-8'
+  };
+
+  const badgeSizes = {
+    sm: 'w-14 h-14',
+    md: 'w-16 h-16',
+    lg: 'w-20 h-20',
+    xl: 'w-24 h-24'
+  };
+
+  const badgePositions = {
+    sm: '-top-1 -left-1',
+    md: '-top-2 -left-2',
+    lg: '-top-2 -left-5',
+    xl: '-top-3 -left-3'
   };
 
   const variants = {
@@ -45,39 +63,81 @@ const RetroCircleContainer = ({
     `
   };
 
-  return (
-    <div className={`
-      ${variants[variant]} 
-      ${sizeClasses[size]} 
-      ${className}
-      relative
-      flex flex-col items-center justify-center
-      transition-transform duration-300
-      hover:scale-105
-    `}
-    style={{
-      clipPath: `polygon(
-        0% 15%, 5% 15%, 5% 10%, 10% 10%, 10% 5%, 15% 5%, 15% 0%,
-        85% 0%, 85% 5%, 90% 5%, 90% 10%, 95% 10%, 95% 15%, 100% 15%,
-        100% 85%, 95% 85%, 95% 90%, 90% 90%, 90% 95%, 85% 95%, 85% 100%,
-        15% 100%, 15% 95%, 10% 95%, 10% 90%, 5% 90%, 5% 85%, 0% 85%
-      )`
-    }}>
-      {/* Pixel Grid Overlay */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px),
-            repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)
-          `
-        }}
-      />
+  const pixelCircleClip = `polygon(
+    0% 30%, 15% 30%, 15% 15%, 30% 15%, 30% 0%,
+    70% 0%, 70% 15%, 85% 15%, 85% 30%, 100% 30%,
+    100% 70%, 85% 70%, 85% 85%, 70% 85%, 70% 100%,
+    30% 100%, 30% 85%, 15% 85%, 15% 70%, 0% 70%
+  )`;
 
-      {/* Content */}
-      <div className="relative z-10 text-center flex flex-col items-center justify-center gap-2">
-        {children}
+  return (
+    <div className="relative inline-block w-fit h-fit">
+      {/* Main Container */}
+      <div className={`
+        ${variants[variant]} 
+        ${sizeClasses[size]} 
+        ${className}
+        relative
+        flex flex-col items-center justify-center
+        transition-transform duration-300
+        hover:scale-105
+      `}
+        style={{
+          clipPath: `polygon(
+          0% 15%, 5% 15%, 5% 10%, 10% 10%, 10% 5%, 15% 5%, 15% 0%,
+          85% 0%, 85% 5%, 90% 5%, 90% 10%, 95% 10%, 95% 15%, 100% 15%,
+          100% 85%, 95% 85%, 95% 90%, 90% 90%, 90% 95%, 85% 95%, 85% 100%,
+          15% 100%, 15% 95%, 10% 95%, 10% 90%, 5% 90%, 5% 85%, 0% 85%
+        )`
+        }}>
+        {/* Pixel Grid Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-10"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px),
+              repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)
+            `
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center gap-2 text-left">
+          {children}
+        </div>
       </div>
+
+      {/* Badge Icon - Top Right Pixel Circle */}
+      {badgeIcon && (
+        <div className={`absolute ${badgePositions[size]} z-20`}>
+          {/* Badge Shadow */}
+          <div
+            className={`
+              ${badgeSizes[size]}
+              absolute top-1.5 left-1.5
+              bg-black/60
+            `}
+            style={{ clipPath: pixelCircleClip }}
+          />
+
+          {/* Badge Main */}
+          <div
+            className={`
+              ${badgeSizes["lg"]}
+              ${badgeColor}
+              relative
+              flex items-center justify-center
+              shadow-[4px_4px_0px_rgba(0,0,0,0.7)]
+              cursor-pointer
+            `}
+            style={{ clipPath: pixelCircleClip }}
+          >
+            <div className="flex items-center justify-center w-full h-full">
+              {badgeIcon}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

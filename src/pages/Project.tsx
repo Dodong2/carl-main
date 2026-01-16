@@ -1,8 +1,10 @@
 /* components */
 import PageTitle from "../components/PageTitle"
 import RetroCircleContainer from "../components/RetroPixelUI/RetroCircleContainer"
+import { PixelImage } from "../components/PixelImage"
 /* images */
 import PotionSlot from '../assets/rpgui/img/icons/potion-slot.png'
+import Sword from '../assets/rpgui/img/icons/sword.png'
 
 const Project = () => {
   return (
@@ -26,7 +28,12 @@ const Project = () => {
             </RetroCircleContainer>
 
             {/* Circle Container - NES Style */}
-            <RetroCircleContainer size="lg" variant="nes">
+            <RetroCircleContainer size="lg"
+              variant="nes"
+              badgeIcon={
+                <PixelImage src={Sword} />
+              }
+              badgeColor="bg-amber-600">
               <div className="text-white font-['Press_Start_2P'] text-xs mb-2">
                 SCORE
               </div>
