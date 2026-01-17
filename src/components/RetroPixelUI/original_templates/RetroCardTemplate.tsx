@@ -1,13 +1,13 @@
 // components/RetroCard.tsx
 import { useState } from 'react';
-import type { SkillsType } from '../../types/shared-types';
+import type { RetroCardData } from '../../../types/shared-types';
 
-interface RetroCardTextProps {
-    data: SkillsType;
-
+interface RetroCardProps {
+    data: RetroCardData;
+    viewMode: 'grid' | 'list';
 }
 
-const RetroCardText = ({ data }: RetroCardTextProps) => {
+const RetroCardTemplate = ({ data, viewMode }: RetroCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -18,6 +18,7 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
         shadow-[8px_8px_0px_rgba(0,0,0,0.3)]
         hover:shadow-[12px_12px_0px_rgba(0,0,0,0.4)]
         hover:-translate-y-2
+        ${viewMode === 'list' ? 'w-full' : ''}
       `}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -35,28 +36,45 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
 
             {/* Badge */}
             <div className="absolute top-1 right-1 bg-[#ff6b6b] text-[#1a1a2e] text-[8px] px-1.5 py-0.5 z-4 font-['Press_Start_2P']">
-                {data.cardTitle}
+                {data.badge}
             </div>
 
             {/* Card Inner */}
-            <div className="relative p-4 z-1 min-h-60">
-                {/* GRID */}
-                <div className="
-          grid grid-cols-2 gap-2 mt-3
-          text-[10px]
-        ">
-                    {data.programs.map((program, index) => (
-                        <div
-                            key={index}
-                            className="
-                border border-white/30 px-2 py-1
-                text-[#4ecdc4] bg-black/20
-                hover:bg-black/40 transition-colors
-              "
-                        >
-                            {program}
-                        </div>
-                    ))}
+            <div className={`
+        p-4 flex z-1 relative
+        ${viewMode === 'list'
+                    ? 'flex-row items-center min-h-0'
+                    : 'flex-col items-center min-h-50'
+                }
+      `}>
+                <img
+                    src={data.image}
+                    className={`
+            w-20 h-20 transition-transform duration-300
+            ${isHovered ? 'animate-bounce' : ''}
+            ${viewMode === 'list' ? 'mr-5' : 'my-2.5'}
+          `}
+                    style={{ imageRendering: 'pixelated' }}
+                    alt={`${data.name} character`}
+                />
+
+                <div className={`
+          flex flex-col
+          ${viewMode === 'list' ? 'items-start' : 'items-center'}
+        `}>
+                    <h2 className={`
+            text-xs my-2.5 text-[#ff6b6b] font-['Press_Start_2P']
+            drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]
+            ${viewMode === 'list' ? 'text-left' : 'text-center'}
+          `}>
+                        {data.name}
+                    </h2>
+                    <p className={`
+            text-[8px] text-[#4ecdc4] mb-2.5 font-['Press_Start_2P']
+            ${viewMode === 'list' ? 'text-left' : 'text-center'}
+          `}>
+                        {data.game}
+                    </p>
                 </div>
             </div>
 
@@ -72,7 +90,7 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
                     : 'opacity-0 scale-95 pointer-events-none'
                 }
       `}>
-                {data.programStats.map((stat, index) => (
+                {data.stats.map((stat, index) => (
                     <div key={index} className="w-full mb-2">
                         <div className="flex justify-between text-[8px] mb-1">
                             <span className="text-[#92f29c]">{stat.label}</span>
@@ -86,9 +104,12 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
                         </div>
                     </div>
                 ))}
+                <div className="text-[#ff6b6b] text-[10px] mt-2.5 text-center font-['Press_Start_2P'] drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]">
+                    SPECIAL: {data.specialMove}
+                </div>
             </div>
         </div>
     );
 };
 
-export default RetroCardText;
+export default RetroCardTemplate;

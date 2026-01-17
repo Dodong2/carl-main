@@ -5,7 +5,7 @@ import { Application as PixiApp, Sprite, Assets } from 'pixi.js';
 // PIXEL PERFECT IMAGE COMPONENT
 // ============================================
 interface PixelImageProps {
-  src: string;
+  src?: string;
   width?: number;
   height?: number;
   className?: string;
@@ -16,6 +16,7 @@ export const PixelImage = ({ src, width = 64, height = 64, className = '' }: Pix
   const appRef = useRef<PixiApp | null>(null);
 
   useEffect(() => {
+    if (!src) return; // ✅ GUARD
     let mounted = true;
 
     const initPixi = async () => {

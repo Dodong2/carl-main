@@ -4,13 +4,14 @@ import RetroCircleContainer from "../components/RetroPixelUI/RetroCircleContaine
 import { PixelImage } from "../components/PixelImage"
 /* images */
 import PotionSlot from '../assets/rpgui/img/icons/potion-slot.png'
+import Potion from '../assets/rpgui/img/icons/potion-red.png'
 import Sword from '../assets/rpgui/img/icons/sword.png'
 
 const Project = () => {
   return (
     <section id="projects" className="min-h-screen border-2 border-orange-600">
       <div className="p-3">
-        <PageTitle image={PotionSlot} title="Projects" />
+        <PageTitle image1={PotionSlot} image2={Potion} title="Projects" />
         <div className="min-h-screen p-10">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
             <h1 className="text-white">Circle Retro</h1>

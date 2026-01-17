@@ -1,10 +1,10 @@
 // components/RetroCardContainer.tsx
 import { useState } from 'react';
-import RetroCard from './RetroCard';
-import type { RetroCardData, ViewMode } from '../../types/shared-types';
-import { initialCards } from '../../data/retroCards';
+import RetroCardTemplate from './RetroCardTemplate';
+import type { RetroCardData, ViewMode } from '../../../types/shared-types';
+import { initialCards } from '../../../data/retroCards';
 
-const RetroCardContainer = () => {
+const RetroCardTemplateContainer = () => {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [cards, setCards] = useState<RetroCardData[]>(initialCards);
 
@@ -29,7 +29,7 @@ const RetroCardContainer = () => {
       }}
     >
       {/* Scanline Effect */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none z-999 opacity-30"
         style={{
           background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.05) 50%)',
@@ -38,7 +38,7 @@ const RetroCardContainer = () => {
       />
 
       {/* CRT Effect */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none z-998"
         style={{
           background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.2) 100%)'
@@ -90,18 +90,18 @@ const RetroCardContainer = () => {
         {/* Cards Grid */}
         <div className={`
           grid gap-6 mb-8
-          ${viewMode === 'grid' 
-            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
+          ${viewMode === 'grid'
+            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
             : 'grid-cols-1'
           }
         `}>
           {cards.map(card => (
-            <RetroCard key={card.id} data={card} viewMode={viewMode} />
+            <RetroCardTemplate key={card.id} data={card} viewMode={viewMode} />
           ))}
         </div>
 
         {/* Randomize Button */}
-        <button 
+        <button
           className="
             block mx-auto bg-[#ff6b6b] text-[#1a1a2e] border-none 
             px-5 py-2.5 text-sm cursor-pointer transition-all duration-200
@@ -125,4 +125,4 @@ const RetroCardContainer = () => {
   );
 };
 
-export default RetroCardContainer;
+export default RetroCardTemplateContainer;
