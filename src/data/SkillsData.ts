@@ -1,12 +1,54 @@
 /* data */
-import type { SkillsTypes } from "../types/shared-types";
-/* image */
-import WeaponSlot from '../assets/rpgui/img/icons/weapon-slot.png'
+import type { SkillsType } from "../types/shared-types";
 
-export const SkillsData: SkillsTypes[] = [
+export const SkillsData: SkillsType[] = [
     {
         id: '1',
-        image: WeaponSlot,
-        title: 'Skills'
-    }
+        cardTitle: 'Programming Languages',
+        programs: [
+            "• Javascript",
+            "• Typescript",
+            "• PHP",
+            "• Python",
+        ],
+        programStats: [
+            { label: "Javascript", value: 80 },
+            { label: "Typescript", value: 60 },
+            { label: "PHP", value: 50 },
+            { label: "Python", value: 30 },
+        ]
+    },
+    {
+        id: '2',
+        cardTitle: 'Frontend',
+        programs: [
+            "• Javascript",
+            "• Typescript",
+            "• PHP",
+            "• Python",
+        ],
+        programStats: [
+            { label: "Javascript", value: 80 },
+            { label: "Typescript", value: 60 },
+            { label: "PHP", value: 50 },
+            { label: "Python", value: 30 },
+        ]
+    },
+    {
+        id: '3',
+        cardTitle: 'Frontend',
+        programs: [
+            "• Javascript",
+            "• Typescript",
+            "• PHP",
+            "• Python",
+        ],
+        programStats: [
+            { label: "Javascript", value: 80 },
+            { label: "Typescript", value: 60 },
+            { label: "PHP", value: 50 },
+            { label: "Python", value: 30 },
+        ]
+    },
+
 ]

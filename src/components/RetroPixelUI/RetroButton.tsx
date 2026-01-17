@@ -14,7 +14,7 @@ const RetroButton = ({ children, color }: RetroButtonProps) => {
     }
 
     return (
-        <button className="relative w-56 h-10 transition-transform duration-200 hover:-translate-y-1.25 active:translate-y-0 group">
+        <button className="relative w-56 h-10 transition-transform duration-200 hover:-translate-y-1.25 active:translate-y-0 group active:scale-75">
             {/* Shadow Layer */}
             <div className="absolute inset-0 bg-pink-950 blur-sm opacity-50 translate-y-2.5 -z-10"
                 style={{

@@ -22,6 +22,7 @@ export interface RetroCardData {
 
 export type ViewMode = 'grid' | 'list';
 
+/* Home Types */
 interface buttonLabel {
     label: string
 }
@@ -32,8 +33,16 @@ export interface HomeTypes {
     buttonLabels: buttonLabel[]
 }
 
-export interface SkillsTypes {
-    id: string
-    image: string
-    title: string
+/* Skills Types */
+interface SkillStats {
+    label: string;
+    value: number;
 }
+
+export interface SkillsType {
+    id: string
+    cardTitle: string
+    programs: string[]
+    programStats: SkillStats[]
+}
+
