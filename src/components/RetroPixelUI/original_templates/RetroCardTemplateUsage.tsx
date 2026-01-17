@@ -1,9 +1,9 @@
 import { useState } from "react";
-import RetroCardTemplate from "./RetroPixelUI/original_templates/RetroCardTemplate";
-import { initialCards } from "../data/retroCards";
-import type { ViewMode, RetroCardData } from "../types/shared-types";
+import RetroCardTemplate from "./RetroCardTemplate";
+import { initialCards } from "../../../data/retroCards";
+import type { ViewMode, RetroCardData } from "../../../types/shared-types";
 
-const SkillsSet = () => {
+const RetroCardTemplateUsage = () => {
     const [viewMode] = useState<ViewMode>('grid');
     const [cards, setCards] = useState<RetroCardData[]>(initialCards);
 
@@ -43,4 +43,4 @@ const SkillsSet = () => {
     )
 }
 
-export default SkillsSet
+export default RetroCardTemplateUsage
