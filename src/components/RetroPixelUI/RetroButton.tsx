@@ -1,11 +1,12 @@
-import type { ReactNode } from "react"
+import type { ReactNode, ButtonHTMLAttributes } from "react"
 
-interface RetroButtonProps {
+interface RetroButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     color: "red" | "yellow" | "blue"
+    readModal?: () => void
 }
 
-const RetroButton = ({ children, color }: RetroButtonProps) => {
+const RetroButton = ({ children, color, ...props }: RetroButtonProps) => {
 
     const colorClassMap: Record<RetroButtonProps["color"], string> = {
         red: 'bg-red-500',
@@ -14,7 +15,7 @@ const RetroButton = ({ children, color }: RetroButtonProps) => {
     }
 
     return (
-        <button className="relative w-56 h-10 transition-transform duration-200 hover:-translate-y-1.25 active:translate-y-0 group active:scale-75">
+        <button className="relative w-56 h-10 transition-transform duration-200 hover:-translate-y-1.25 active:translate-y-0 group active:scale-75" {...props}>
             {/* Shadow Layer */}
             <div className="absolute inset-0 bg-gray-600 blur-sm opacity-50 translate-y-2.5 -z-10"
                 style={{

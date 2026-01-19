@@ -29,10 +29,9 @@ export const ProjectData: ProjectsTypes[] = [
         created: '2025',
         image: Project2,
         descriptions: [
-            'Health Electronic Alert Network',
-            'AppCon is a competition focused on developing web or mobile applications that aim to resolve social issues in the Philippines.',
-            ' Since this is a team project, my contributions were in front-end development,',
-            ' where I coded the UI design into the website and hosted it.'
+            'PHP - CRUD',
+            'I created this project to learn the basics of backend development.',
+            'In this project, I performed CRUD operations using PHP and MySQL, and hosted it on InfinityFree.',
         ],
         projectStats: [
             { label: 'Next.ts', value: 100 },
