@@ -46,3 +46,17 @@ export interface SkillsType {
     programStats: SkillStats[]
 }
 
+/* Projects Types */
+interface ProjectsStats {
+    label: string
+    value: number
+}
+export interface ProjectsTypes {
+    id: string
+    projectTitle: string
+    created: string
+    image: string
+    descriptions: string[]
+    projectStats: ProjectsStats[]
+
+}

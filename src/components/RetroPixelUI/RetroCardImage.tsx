@@ -1,13 +1,14 @@
 // components/RetroCard.tsx
 import { useState } from 'react';
-import type { SkillsType } from '../../types/shared-types';
+import type { ProjectsTypes } from '../../types/shared-types';
+import RetroButton from './RetroButton';
 
-interface RetroCardTextProps {
-    data: SkillsType;
+interface RetroCardImageProps {
+    data: ProjectsTypes;
 
 }
 
-const RetroCardText = ({ data }: RetroCardTextProps) => {
+const RetroCardImage = ({ data }: RetroCardImageProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -34,29 +35,20 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
             />
 
             {/* Badge */}
-            <div className="absolute top-1 right-1 bg-[#e9ff6b] text-[#1a1a2e] text-[8px] px-1.5 py-0.5 z-4 font-['Press_Start_2P']">
-                {data.cardTitle}
+            <div className="absolute top-1 right-1 bg-[#4ecdc4] text-[#1a1a2e] text-[8px] px-1.5 py-0.5 z-4 font-['Press_Start_2P']">
+                {data.projectTitle}
             </div>
 
             {/* Card Inner */}
-            <div className="relative p-4 z-1 min-h-60">
+            <div className="relative p-4 z-1 min-h-50">
                 {/* GRID */}
-                <div className="
-          grid grid-cols-2 gap-2 mt-3
-          text-[10px]
-        ">
-                    {data.programs.map((program, index) => (
-                        <div
-                            key={index}
-                            className="
-                border border-white/30 px-2 py-1
-                text-[#4ecdc4] bg-black/20
-                hover:bg-black/40 transition-colors
-              "
-                        >
-                            {program}
-                        </div>
-                    ))}
+                <div className="w-full max-w-sm mx-auto">
+                    <img
+                        src={data.image}
+                        alt="images"
+                        loading="lazy"
+                        className="w-full h-auto object-contain"
+                    />
                 </div>
             </div>
 
@@ -64,15 +56,11 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
             <div className={`
         absolute inset-0 bg-[rgba(26,26,46,0.95)] 
         flex flex-col justify-center items-center p-5
-        border-4 border-[#4ecdc4] z-3
+        border-4 border-[#e9ff6b] z-3
         transition-all duration-300
         backdrop-blur-sm
-        ${isHovered
-                    ? 'opacity-100 scale-100'
-                    : 'opacity-0 scale-95 pointer-events-none'
-                }
-      `}>
-                {data.programStats.map((stat, index) => (
+        ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                {data.projectStats.map((stat, index) => (
                     <div key={index} className="w-full mb-2">
                         <div className="flex justify-between text-[8px] mb-1">
                             <span className="text-[#92f29c]">{stat.label}</span>
@@ -80,15 +68,16 @@ const RetroCardText = ({ data }: RetroCardTextProps) => {
                         </div>
                         <div className="relative h-2 overflow-hidden bg-white/10">
                             <div
-                                className="h-full bg-[#e9ff6b] absolute top-0 left-0 transition-all duration-500"
+                                className="h-full bg-[#4ecdc4] absolute top-0 left-0 transition-all duration-500"
                                 style={{ width: isHovered ? `${stat.value}%` : '0%' }}
                             />
                         </div>
                     </div>
                 ))}
+                <RetroButton color='blue'>Read</RetroButton>
             </div>
         </div>
     );
 };
 
-export default RetroCardText;
+export default RetroCardImage;
