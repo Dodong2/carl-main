@@ -5,10 +5,10 @@ import RetroContainer from "../components/RetroPixelUI/RetroContainer"
 import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
 import RetroButton from "../components/RetroPixelUI/RetroButton"
 /* hooks */
-import { HomeHooks } from "../hooks/HomeHooks"
+import { useHome } from "../hooks/useHome"
 
 const Home = () => {
-  const { showResume, displayedText, showContinue, handleContinue } = HomeHooks()
+  const { showResume, displayedText, showContinue, handleContinue } = useHome()
 
   return (
     <section id="home" className="min-h-screen">

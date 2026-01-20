@@ -1,8 +1,8 @@
-import PageLoaderHooks from "../../hooks/PageLoaderHooks";
+import { usePageLoader } from "../../hooks/usePageLoader";
 import type { PageLoaderProps } from '../../types/shared-types'
 
 const PageLoader = ({ minLoadTime = 2000, onComplete }: PageLoaderProps) => {
-  const { progress } = PageLoaderHooks({ minLoadTime, onComplete })
+  const { progress } = usePageLoader({ minLoadTime, onComplete })
 
   return (
     <div className="bg-[#303030] h-screen z-50 flex items-center justify-center px-4 py-4 relative">

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 /* types */
 import type { PageLoaderProps } from "../types/shared-types"
 
-const PageLoaderHooks = ({ minLoadTime, onComplete }: PageLoaderProps) => {
+export const usePageLoader = ({ minLoadTime, onComplete }: PageLoaderProps) => {
     const [progress, setProgress] = useState(0)
 
     useEffect(() => {
@@ -28,5 +28,3 @@ const PageLoaderHooks = ({ minLoadTime, onComplete }: PageLoaderProps) => {
 
     return { progress }
 }
-
-export default PageLoaderHooks

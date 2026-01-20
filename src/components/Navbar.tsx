@@ -1,10 +1,10 @@
 import { Circle, Square, Triangle, X } from "lucide-react"
 
-import { NavbarHooks } from "../hooks/NavbarHooks"
+import { useNavbar } from "../hooks/useNavbar"
 
 
 const Navbar = () => {
-    const { showController, showNav, toggleController, scrollTo } = NavbarHooks()
+    const { showController, showNav, toggleController, scrollTo } = useNavbar()
 
     return (
         <>
@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className="p-2 bg-[rgba(85,85,85,0.9)]">
                     <div className="flex items-center justify-between">
                         <div className="text-white">Carl Arocha</div>
-                        <i className="snes-jp-logo active:scale-75 transition-transform duration-75" onClick={toggleController}></i>
+                        <i className="transition-transform duration-75 snes-jp-logo active:scale-75" onClick={toggleController}></i>
                     </div>
                 </div>
             </div>
@@ -20,8 +20,8 @@ const Navbar = () => {
             {/* controller */}
             {/* -bottom-10/1 */}
             {showController && (
-                <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-30">
-                    <div className="nes-container with-title is-centered bg-white is-rounded ">
+                <div className="fixed z-30 transform -translate-x-1/2 bottom-5 left-1/2">
+                    <div className="bg-white nes-container with-title is-centered is-rounded ">
                         <p className="title">controller</p>
                         <div>
                             {/* home */}
@@ -32,7 +32,7 @@ const Navbar = () => {
                             </div>
 
                             {/* skills & projects */}
-                            <div className="flex justify-between items-center">
+                            <div className="flex items-center justify-between">
                                 <div className="flex justify-center items-center w-12 h-12 bg-[#212529] rounded-full overflow-hidden cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-75" onClick={() => scrollTo("skills")}>
                                     <Square className="text-yellow-300" />
                                 </div>

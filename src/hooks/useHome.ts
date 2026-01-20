@@ -1,45 +1,42 @@
 import { useState, useEffect } from "react"
 import { HomeData } from "../data/HomeData"
 
-export const HomeHooks = () => {
+export const useHome = () => {
     const [showResume, setShowResume] = useState(false)
     const [textIndex, setTextIndex] = useState(0)
     const [displayedText, setDisplayedText] = useState("")
-    const [isTyping, setIsTyping] = useState(true)
-    const [showContinue, setShowContinue] = useState(false)
+
 
     const home = HomeData[0]
     const dialogues = home.dialogue
 
-    useEffect(() => {
-        if (textIndex >= dialogues.length) return
+    const currentDialogue = dialogues[textIndex] ?? "";
 
-        const currentDialogue = dialogues[textIndex]
+    useEffect(() => {
+        if (!currentDialogue) return;
 
         if (displayedText.length < currentDialogue.length) {
-            setIsTyping(true)
-            setShowContinue(false)
 
             const timeout = setTimeout(() => {
                 setDisplayedText(currentDialogue.slice(0, displayedText.length + 1))
             }, 30)
 
             return () => clearTimeout(timeout)
-        } else {
-            setIsTyping(false)
-            setShowContinue(true)
         }
-    }, [displayedText, textIndex, dialogues])
+    }, [displayedText, currentDialogue])
 
     const handleContinue = () => {
         if (textIndex < dialogues.length - 1) {
             setTextIndex(textIndex + 1)
             setDisplayedText("")
-            setShowContinue(false)
         } else {
             setShowResume(true)
         }
     }
+
+
+    const isTyping = displayedText.length < currentDialogue.length;
+    const showContinue = !isTyping && displayedText.length > 0;
 
     return {
         showResume,

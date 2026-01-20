@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext } from "react"
 import { ScrollContainerContext } from "../context/ScrollContainerContext"
 
-export const NavbarHooks = () => {
+export const useNavbar = () => {
     const [showController, setShowController] = useState(false)
     const [showNav, setShowNav] = useState(true)
     const scrollContainerRef = useContext(ScrollContainerContext)

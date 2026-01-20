@@ -54,7 +54,7 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                             src={data.image}
                             alt="images"
                             loading="lazy"
-                            className="w-full h-auto object-contain"
+                            className="object-contain w-full h-auto"
                         />
                     </div>
                 </div>
