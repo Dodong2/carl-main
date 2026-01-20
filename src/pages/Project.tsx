@@ -9,7 +9,7 @@ import Potion from '../assets/rpgui/img/icons/potion-red.png'
 
 const Project = () => {
   return (
-    <section id="projects" className="min-h-screen border-2 border-orange-600">
+    <section id="projects" className="min-h-screen">
       <div className="p-3">
         <PageTitle image1={PotionSlot} image2={Potion} title="Projects" />
         <div className="mt-3">

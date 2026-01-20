@@ -9,7 +9,7 @@ import Sword from '../assets/rpgui/img/icons/sword.png'
 
 const Skills = () => {
   return (
-    <section id="skills" className="min-h-screen border-2 border-amber-400">
+    <section id="skills" className="min-h-screen">
       <div className="p-3">
         <PageTitle image1={WeaponSlot} image2={Sword} title={'Skills'} />
 
