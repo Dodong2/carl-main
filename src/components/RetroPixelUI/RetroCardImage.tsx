@@ -48,14 +48,14 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                 </div>
 
                 {/* Card Inner */}
-                <div className="relative p-4 z-1 min-h-50">
-                    {/* GRID */}
-                    <div className="w-full max-w-sm mx-auto">
+                {/* Card Inner */}
+                <div className="relative p-4 z-1 min-h-[220px] flex items-center justify-center">
+                    <div className="w-full h-full max-w-sm">
                         <img
                             src={data.image}
                             alt="images"
                             loading="lazy"
-                            className="object-contain w-full h-auto"
+                            className="object-contain w-full h-full"
                         />
                     </div>
                 </div>
@@ -82,8 +82,9 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                             </div>
                         </div>
                     ))}
-
-                    <RetroButton color='blue' onClick={Reading}>Read</RetroButton>
+                    <div className='mt-2'>
+                        <RetroButton color='blue' onClick={Reading}>Read</RetroButton>
+                    </div>
                 </div>
             </div>
 
