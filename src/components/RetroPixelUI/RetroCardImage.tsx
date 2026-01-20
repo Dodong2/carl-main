@@ -3,6 +3,7 @@ import { useState } from 'react';
 import type { ProjectsTypes } from '../../types/shared-types';
 import RetroButton from './RetroButton';
 import RetroContainer from './RetroContainer';
+import TypingEffect from '../TypingEffect';
 
 interface RetroCardImageProps {
     data: ProjectsTypes;
@@ -100,7 +101,7 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                         <RetroContainer size="lg" title={data.projectTitle}>
                             <div className="space-y-2 text-[10px] sm:text-[12px] md:text-[14px] text-white leading-relaxed">
                                 <p className="text-[#92f29c]">{data.created}</p>
-                                <p>{data.descriptions}</p>
+                                <TypingEffect texts={data.descriptions} />
                             </div>
                         </RetroContainer>
                     </div>

@@ -13,8 +13,7 @@ export const ProjectData: ProjectsTypes[] = [
         created: '2025',
         image: Lms,
         descriptions: [
-            'EduLink is a Learning Management System (LMS) capstone web application.',
-            ' As part of a group project, I served as the programmer, responsible for coding and deployment.',
+            'EduLink is a Learning Management System (LMS) capstone web application. As part of a group project, I served as the programmer, responsible for coding and deployment.',
         ],
         projectStats: [
             { label: 'Next.ts', value: 100 },
@@ -29,9 +28,7 @@ export const ProjectData: ProjectsTypes[] = [
         created: '2025',
         image: Inventory,
         descriptions: [
-            'This was a freelance project for one of my subjects.',
-            ' My client was Jep Shop, a motorcycle parts business.',
-            ' Together with my classmates, I developed an inventory management system for them.',
+            'This was a freelance project for one of my subjects. My client was Jep Shop, a motorcycle parts business. Together with my classmates, I developed an inventory management system for them.',
         ],
         projectStats: [
             { label: 'MongoDB', value: 100 },
@@ -46,10 +43,7 @@ export const ProjectData: ProjectsTypes[] = [
         created: '2023-2024',
         image: AppCon,
         descriptions: [
-            'Health Electronic Alert Network',
-            ' AppCon is a competition focused on developing web or mobile applications that aim to resolve social issues in the Philippines.',
-            ' Since this is a team project, my contributions were in front-end development,',
-            ' where I coded the UI design into the website and hosted it.'
+            'Health Electronic Alert Network AppCon is a competition focused on developing web or mobile applications that aim to resolve social issues in the Philippines. Since this is a team project, my contributions were in front-end development, where I coded the UI design into the website and hosted it.'
         ],
         projectStats: [
             { label: 'React.js', value: 100 },
@@ -63,9 +57,7 @@ export const ProjectData: ProjectsTypes[] = [
         created: '2024',
         image: Bao,
         descriptions: [
-            'Business Affairs Office',
-            ' This is my final project in the subjects Multimedia Systems and Web Systems and Technologies,',
-            ' where my classmates handled the website design while I coded its UI and deployed it.',
+            'Business Affairs Office. This is my final project in the subjects Multimedia Systems and Web Systems and Technologies, where my classmates handled the website design while I coded its UI and deployed it.'
         ],
         projectStats: [
             { label: 'React.js', value: 100 },

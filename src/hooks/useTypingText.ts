@@ -7,6 +7,8 @@ export const TypingText = (texts: string[]) => {
 
   const currentText = texts[textIndex] ?? ""
 
+  const TypingSpeed = 10
+
   useEffect(() => {
     if (!currentText) return
 
@@ -15,7 +17,7 @@ export const TypingText = (texts: string[]) => {
 
       const timeout = setTimeout(() => {
         setDisplayedText(currentText.slice(0, displayedText.length + 1))
-      }, 30)
+      }, TypingSpeed)
 
       return () => clearTimeout(timeout)
     } else {

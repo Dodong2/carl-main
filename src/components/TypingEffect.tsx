@@ -8,9 +8,9 @@ const TypingEffect = ({ texts }: TypingEffectProps) => {
     const { typing, displayedText } = TypingText(texts)
 
     return (
-        <p>
+        <p className="text-justify">
             {displayedText}
-            {typing && <span>|</span>}
+            {typing && <span className="animate-pulse">▌</span>}
         </p>
     )
 }
