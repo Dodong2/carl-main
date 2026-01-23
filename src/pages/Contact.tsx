@@ -3,6 +3,7 @@ import { ContactData } from "../data/ContactData"
 /* components */
 import PageTitle from "../components/PageTitle"
 import RetroButton from "../components/RetroPixelUI/RetroButton"
+import TypingLoopEffect from "../components/TypingLoopEffect"
 /* images */
 import ShieldSlot from '../assets/rpgui/img/icons/shield-slot.png'
 import Shield from '../assets/rpgui/img/icons/shield.png'
@@ -24,15 +25,14 @@ const Contact = () => {
 
           {ContactData.map((contact) => (
             < div key={contact.id}>
-              <div className='flex items-center justify-center text-center' >
-                <div className="flex flex-col items-center gap-4">
-                  <h1 className="lg:text-2xl sm:text-[15px] tracking-wider text-white mb-2.5" style={{ textShadow: '4px 4px 0 rgba(0,0,0,1)' }}>
-                    {contact.message}
-                  </h1>
+
+              <div className='relative flex items-center justify-center text-center min-h-15'>
+                <div className="absolute flex flex-col items-center gap-4">
+                  <TypingLoopEffect texts={contact.message} className="lg:text-2xl sm:text-[15px] tracking-wider text-white mb-2.5" />
                 </div>
               </div>
 
-              <div className={`grid gap-6 mb-8 grid-cols-1 mt-3 sm:grid-cols-2 lg:grid-cols-3`}>
+              <div className={`grid gap-6 mb-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`}>
 
                 <div className=" bg-[#1a1a2e] text-white p-5 relative font-['Press_Start_2P']"
                   style={{

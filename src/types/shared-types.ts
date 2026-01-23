@@ -64,7 +64,7 @@ export interface ProjectsTypes {
 /* Contact Types */
 export interface ContactTypes {
     id: string
-    message: string
+    message: string[]
     services: string[]
     links: string[]
 }
