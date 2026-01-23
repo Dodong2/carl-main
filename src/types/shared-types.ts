@@ -60,3 +60,11 @@ export interface ProjectsTypes {
     projectStats: ProjectsStats[]
 
 }
+
+/* Contact Types */
+export interface ContactTypes {
+    id: string
+    message: string
+    services: string[]
+    links: string[]
+}
