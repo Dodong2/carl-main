@@ -7,7 +7,7 @@ interface DirectMessageModalProps {
 }
 
 const DirectMessageModal = ({ onClose }: DirectMessageModalProps) => {
-    const { formRef, sendMessage } = useDirectMessage()
+    const { formRef, sendMessage, alert } = useDirectMessage()
 
 
 
@@ -26,6 +26,10 @@ const DirectMessageModal = ({ onClose }: DirectMessageModalProps) => {
             ></div>
 
             <div className="relative z-10 w-[90%] max-w-lg sm:max-w-xl">
+                {alert && (
+                    <div className="font-bold text-center text-green-500" style={{ textShadow: '4px 4px 0 rgba(0,0,0,1)' }}>{alert.message}</div>
+                )}
+
                 <form id="fillup" ref={formRef} onSubmit={sendMessage}>
                     <div className="flex flex-col gap-2">
                         <span className='text-white'>&gt; Name</span>
