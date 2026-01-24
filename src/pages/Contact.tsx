@@ -4,12 +4,17 @@ import { ContactData } from "../data/ContactData"
 import PageTitle from "../components/PageTitle"
 import RetroButton from "../components/RetroPixelUI/RetroButton"
 import TypingLoopEffect from "../components/TypingLoopEffect"
+import DirectMessageModal from "../components/DirectMessageModal"
 /* images */
 import ShieldSlot from '../assets/rpgui/img/icons/shield-slot.png'
 import Shield from '../assets/rpgui/img/icons/shield.png'
+/* hooks */
+import { useDirectMessage } from "../hooks/useDirectMessage"
 
 
 const Contact = () => {
+  const { open, toggleDirectMessage } = useDirectMessage()
+
   return (
     <section id="contacts" className="">
       <div className="p-3">
@@ -54,7 +59,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="">
+                  <div>
                     <p>{contact.services[0]}</p>
                     <p>{contact.services[1]}</p>
                   </div>
@@ -77,7 +82,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-center justify-center mt-4">
-                    <RetroButton color="yellow">
+                    <RetroButton color="yellow" onClick={toggleDirectMessage}>
                       Send Quest
                     </RetroButton>
                   </div>
@@ -119,6 +124,10 @@ const Contact = () => {
           ))}
         </div>
       </div>
+
+      {open && (
+        <DirectMessageModal onClose={toggleDirectMessage} />
+      )}
 
     </section>
   )

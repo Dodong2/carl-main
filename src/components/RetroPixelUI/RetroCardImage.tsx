@@ -95,7 +95,12 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                     <div
                         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
                         onClick={() => isRead(false)}
-                    ></div>
+                        style={{
+                            backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px),
+            repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px)
+          `
+                        }}></div>
 
                     {/* Modal */}
                     <div className="relative z-10 w-[90%] max-w-lg sm:max-w-xl">
