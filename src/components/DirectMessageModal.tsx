@@ -27,7 +27,7 @@ const DirectMessageModal = ({ onClose }: DirectMessageModalProps) => {
 
             <div className="relative z-10 w-[90%] max-w-lg sm:max-w-xl">
                 {alert && (
-                    <div className="font-bold text-center text-green-500" style={{ textShadow: '4px 4px 0 rgba(0,0,0,1)' }}>{alert.message}</div>
+                    <div className="font-bold text-center text-green-500 animate-bounce" style={{ textShadow: '4px 4px 0 rgba(0,0,0,1)' }}>{alert.message}</div>
                 )}
 
                 <form id="fillup" ref={formRef} onSubmit={sendMessage}>
