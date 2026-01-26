@@ -1,9 +1,12 @@
-// components/RetroCard.tsx
-import { useState } from 'react';
+/* hooks */
+import { useRetroModal } from '../../hooks/useRetroModal';
+/* types */
 import type { ProjectsTypes } from '../../types/shared-types';
+/* components */
 import RetroButton from './RetroButton';
 import RetroContainer from './RetroContainer';
 import TypingEffect from '../TypingEffect';
+import RetroModal from './RetroModal';
 
 interface RetroCardImageProps {
     data: ProjectsTypes;
@@ -11,12 +14,7 @@ interface RetroCardImageProps {
 }
 
 const RetroCardImage = ({ data }: RetroCardImageProps) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [read, isRead] = useState(false)
-
-    const Reading = () => {
-        isRead((prev) => !prev)
-    }
+    const { active, read, openModal, closeModal, handleMouseEnter, handleMouseLeave, handleCardClick, animate } = useRetroModal()
 
     return (
         <div>
@@ -28,12 +26,13 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
         hover:shadow-[12px_12px_0px_rgba(0,0,0,0.4)]
         hover:-translate-y-2
       `}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onClick={handleCardClick}
             >
                 {/* Pixel Grid Overlay */}
                 <div
-                    className="absolute inset-0 pointer-events-none z-2 opacity-30"
+                    className={`absolute inset-0 black/70 backdrop-blur-sm transition-opacity duration-200 ${animate ? 'opacity-100' : 'opacity-0'}`}
                     style={{
                         backgroundImage: `
             repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px),
@@ -67,7 +66,7 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
         border-4 border-[#e9ff6b] z-3
         transition-all duration-300
         backdrop-blur-sm
-        ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+        ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
                     {data.projectStats.map((stat, index) => (
                         <div key={index} className="w-full mb-2">
                             <div className="flex justify-between text-[8px] mb-1">
@@ -77,41 +76,28 @@ const RetroCardImage = ({ data }: RetroCardImageProps) => {
                             <div className="relative h-2 overflow-hidden bg-white/10">
                                 <div
                                     className="h-full bg-[#4ecdc4] absolute top-0 left-0 transition-all duration-500"
-                                    style={{ width: isHovered ? `${stat.value}%` : '0%' }}
+                                    style={{ width: active ? `${stat.value}%` : '0%' }}
                                 />
                             </div>
                         </div>
                     ))}
                     <div className='mt-2'>
-                        <RetroButton color='blue' onClick={Reading}>Read</RetroButton>
+                        <RetroButton color='blue' onClick={openModal}>Read</RetroButton>
                     </div>
                 </div>
             </div>
 
             {/* modal description */}
             {read && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
-                    {/* Backdrop */}
-                    <div
-                        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-                        onClick={() => isRead(false)}
-                        style={{
-                            backgroundImage: `
-            repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px),
-            repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px)
-          `
-                        }}></div>
+                <RetroModal onClose={closeModal} animate={animate}>
+                    <RetroContainer size="lg" title={data.projectTitle}>
+                        <div className="space-y-2 text-[10px] sm:text-[12px] md:text-[14px] text-white leading-relaxed">
+                            <p className="text-[#92f29c]">{data.created}</p>
+                            <TypingEffect texts={data.descriptions} />
+                        </div>
+                    </RetroContainer>
 
-                    {/* Modal */}
-                    <div className="relative z-10 w-[90%] max-w-lg sm:max-w-xl">
-                        <RetroContainer size="lg" title={data.projectTitle}>
-                            <div className="space-y-2 text-[10px] sm:text-[12px] md:text-[14px] text-white leading-relaxed">
-                                <p className="text-[#92f29c]">{data.created}</p>
-                                <TypingEffect texts={data.descriptions} />
-                            </div>
-                        </RetroContainer>
-                    </div>
-                </div>
+                </RetroModal>
             )}
         </div>
     );

@@ -1,15 +1,14 @@
+/* hooks */
 import { useDirectMessage } from "../hooks/useDirectMessage"
+/* components */
 import RetroButton from "./RetroPixelUI/RetroButton"
 import RetroInput from "./RetroPixelUI/RetroInput"
-
 interface DirectMessageModalProps {
     onClose: () => void
 }
 
 const DirectMessageModal = ({ onClose }: DirectMessageModalProps) => {
     const { formRef, sendMessage, alert } = useDirectMessage()
-
-
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
