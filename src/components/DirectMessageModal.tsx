@@ -3,6 +3,7 @@ import { useDirectMessage } from "../hooks/useDirectMessage"
 /* components */
 import RetroButton from "./RetroPixelUI/RetroButton"
 import RetroInput from "./RetroPixelUI/RetroInput"
+
 interface DirectMessageModalProps {
     onClose: () => void
 }

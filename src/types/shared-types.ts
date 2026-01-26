@@ -29,6 +29,7 @@ interface buttonLabel {
 export interface HomeTypes {
     id: string
     image: string
+    resume: string
     dialogue: string[]
     buttonLabels: buttonLabel[]
 }

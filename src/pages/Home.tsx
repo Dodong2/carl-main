@@ -6,9 +6,12 @@ import RetroCircleImage from "../components/RetroPixelUI/RetroCircleImage"
 import RetroButton from "../components/RetroPixelUI/RetroButton"
 /* hooks */
 import { useHome } from "../hooks/useHome"
+import { useRetroModal } from "../hooks/useRetroModal"
+import RetroModal from "../components/RetroPixelUI/RetroModal"
 
 const Home = () => {
   const { showResume, displayedText, showContinue, handleContinue } = useHome()
+  const { read, openModal, closeModal, animate } = useRetroModal()
 
   return (
     <section id="home" className="min-h-screen">
@@ -23,7 +26,7 @@ const Home = () => {
               badge="WARRIOR"
             />
             {showResume && (
-              <RetroButton color="red">{home.buttonLabels[0].label}</RetroButton>
+              <RetroButton color="red" onClick={openModal}>{home.buttonLabels[0].label}</RetroButton>
             )}
           </div>
 
@@ -42,8 +45,24 @@ const Home = () => {
               </div>
             </RetroContainer>
           </div>
+
+          {read && (
+            <RetroModal onClose={closeModal} animate={animate}>
+              <div className="w-full h-[80vh] overflow-auto">
+                <embed
+                  src={home.resume}
+                  type="application/pdf"
+                  width="100%"
+                  height="100%"
+                  className="min-h-[600px]"
+                />
+              </div>
+            </RetroModal>
+          )}
         </div>
       ))}
+
+
     </section>
   )
 }
