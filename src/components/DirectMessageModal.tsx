@@ -32,9 +32,9 @@ const DirectMessageModal = ({ onClose }: DirectMessageModalProps) => {
                 <form id="fillup" ref={formRef} onSubmit={sendMessage}>
                     <div className="flex flex-col gap-2">
                         <span className='text-white'>&gt; Name</span>
-                        <RetroInput tagsType="input" type="text" id="opname" name="from_name" placeholder="...your name" required />
+                        <RetroInput tagsType="input" type="text" id="opname" name="from_name" placeholder="your name..." required />
                         <span className='text-white'>&gt; Email</span>
-                        <RetroInput tagsType='input' type="text" id="gmail" name="from_email" placeholder="...your email" required />
+                        <RetroInput tagsType='input' type="text" id="gmail" name="from_email" placeholder="your email..." required />
                         <span className='text-white'>&gt; Message</span>
                         <RetroInput tagsType='textarea' name="message" rows={5} cols={50} id="message" className='input3' placeholder="your message..." required />
                         <div className="flex items-center justify-end mt-3">

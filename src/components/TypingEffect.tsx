@@ -8,7 +8,7 @@ const TypingEffect = ({ texts }: TypingEffectProps) => {
     const { typing, displayedText } = useAutoTypingText(texts)
 
     return (
-        <p className="text-justify" style={{ textShadow: '4px 4px 0 rgba(0,0,0,1)' }}>
+        <p className="text-justify">
             {displayedText}
             {typing && <span className="animate-pulse">▌</span>}
         </p>
