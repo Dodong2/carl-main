@@ -26,7 +26,13 @@ const Home = () => {
               badge="WARRIOR"
             />
             {showResume && (
-              <RetroButton color="red" onClick={openModal}>{home.buttonLabels[0].label}</RetroButton>
+              <RetroButton color="red" onClick={() => {
+                if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                  window.open(home.resume, "_blank")
+                } else {
+                  openModal()
+                }
+              }}>{home.buttonLabels[0].label}</RetroButton>
             )}
           </div>
 

@@ -2,7 +2,7 @@
 import type { HomeTypes } from "../types/shared-types";
 /* images */
 import Me from '../assets/images/Me.png'
-import MyResume from '../../public/Carl_Stephen_Arocha_Resume.pdf'
+import MyResume from '../assets/pdf/Carl_Stephen_Arocha_Resume.pdf'
 
 export const HomeData: HomeTypes[] = [
     {
