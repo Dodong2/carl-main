@@ -55,12 +55,10 @@ const Home = () => {
           {read && (
             <RetroModal onClose={closeModal} animate={animate}>
               <div className="w-full h-[80vh] overflow-auto">
-                <embed
+                <iframe
                   src={home.resume}
-                  type="application/pdf"
-                  width="100%"
-                  height="100%"
-                  className="min-h-[600px]"
+                  title="Resume"
+                  className="w-full h-full min-h-[600px]"
                 />
               </div>
             </RetroModal>
