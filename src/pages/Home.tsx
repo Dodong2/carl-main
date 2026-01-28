@@ -28,7 +28,7 @@ const Home = () => {
             {showResume && (
               <RetroButton color="red" onClick={() => {
                 if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-                  window.open(home.resume, "_blank")
+                  window.open(home.resume, "_blank", "noopener,noreferrer")
                 } else {
                   openModal()
                 }
