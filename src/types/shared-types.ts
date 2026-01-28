@@ -30,6 +30,7 @@ export interface HomeTypes {
     id: string
     image: string
     resume: string
+    resumePDF: string
     dialogue: string[]
     buttonLabels: buttonLabel[]
 }
