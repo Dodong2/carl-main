@@ -10,12 +10,14 @@ export const SkillsData: SkillsType[] = [
             "• Typescript",
             "• PHP",
             "• Python",
+            "• Rust"
         ],
         programStats: [
             { label: "Javascript", value: 80 },
             { label: "Typescript", value: 60 },
             { label: "PHP", value: 50 },
             { label: "Python", value: 30 },
+            { label: "rust", value: 10 }
         ]
     },
     {
